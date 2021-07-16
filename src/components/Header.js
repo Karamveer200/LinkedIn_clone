@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: #fff;
+  background-color: #9e9e9e;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   left: 0;
   top: 0;
@@ -134,26 +134,36 @@ const NavList = styled.li`
 const SignOut = styled.div`
   position: absolute;
   top: 65px;
-  background: white;
+  background: rgba(0, 0, 0, 1);
   border-radius: 0 0 5px 5px;
   width: 100px;
   height: 40px;
   align-items: center !important;
   font-size: 16px;
   text-align: center;
-  display: flex;
+  margin-right: 100px;
+
   justify-content: space-around;
   padding: 2px 5px;
   display: none;
+  color: white;
+
+  a {
+    display: flex;
+    align-items: center !important;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+
     font-weight: 900;
   }
 `;
 
 const User = styled(NavList)`
+  a {
+    margin-top: 10px;
+  }
   a > img {
     width: 24px;
     height: 24px;
@@ -235,6 +245,7 @@ const Header = (props) => {
                 <span>Me</span>
                 <img src="/images/down-icon.svg" alt="" />
               </a>
+
               <SignOut>
                 <a href>Sign Out</a>
               </SignOut>

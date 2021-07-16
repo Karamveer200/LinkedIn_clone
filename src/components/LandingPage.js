@@ -137,7 +137,7 @@ const Google = styled.button`
     color: rgba(0, 0, 0, 1);
   }
 `;
-const Login = () => {
+const LandingPage = () => {
   return (
     <Container>
       <div className="Login_header">
@@ -168,4 +168,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LandingPage;

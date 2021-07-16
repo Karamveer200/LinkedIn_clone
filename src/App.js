@@ -1,5 +1,5 @@
 import "./App.css";
-import Login from "./components/Login";
+import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -15,7 +15,7 @@ function App() {
           </Route>
 
           <Route exact path="/">
-            <Login />
+            <LandingPage />
           </Route>
         </Switch>
       </Router>

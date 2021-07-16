@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import Leftside from "./Leftside";
-import Rightside from "./Rightside";
-import Main from "./Main";
+import Leftside from "./ThreeSections/Leftside";
+import Rightside from "./ThreeSections/Rightside";
+import Main from "./ThreeSections/Main";
 
 const Container = styled.div`
-  padding-top: 75px;
+  padding-top: 85px;
   max-width: 100%;
 `;
 
@@ -19,12 +19,14 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
 
+  background-color: #9e9e9e;
+
   & > h5 {
     color: #2977c9;
     font-size: 16px;
 
     a {
-      font-weight: 700;
+      font-weight: 1000;
     }
   }
 
