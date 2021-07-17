@@ -22,7 +22,7 @@ const Section = styled.section`
   background-color: #9e9e9e;
 
   & > h5 {
-    color: #2977c9;
+    color: #fff;
     font-size: 16px;
 
     a {

@@ -22,6 +22,14 @@ const Nav = styled.nav`
       padding: 0 5px;
     }
   }
+
+  & > div {
+    margin-right: 20px;
+
+    @media (max-width: 1028px) {
+      margin-right: 60px;
+    }
+  }
 `;
 
 const Join = styled.a`
@@ -85,25 +93,35 @@ const Hero = styled.div`
     color: #2977c9;
     font-weight: 300;
     line-height: 70px;
+    margin-right: 50px;
 
     @media (max-width: 768px) {
       text-align: center;
       width: 100%;
       font-size: 20px;
       line-height: 2;
+      margin-bottom: 20px;
     }
   }
 
-  img {
-    width: 700px;
+  & > img {
+    width: 1000px;
     height: 670px;
     position: absolute;
     bottom: -2px;
     right: -150px;
 
+    @media (max-width: 1028px) {
+      width: 400px;
+      height: 370px;
+      right: 0px;
+      top: 100px;
+    }
+
     @media (max-width: 768px) {
       top: 230px;
-      width: initial;
+      width: 400px;
+      height: 370px;
       position: initial;
     }
   }
