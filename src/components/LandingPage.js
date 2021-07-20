@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { signInAPI } from "../actions";
+import { Redirect } from "react-router";
 
 const Container = styled.div`
   padding: 0px;
@@ -155,17 +158,18 @@ const Google = styled.button`
     color: rgba(0, 0, 0, 1);
   }
 `;
-const LandingPage = () => {
+const LandingPage = (props) => {
   return (
     <Container>
+      {props.user && <Redirect to="/home" />}
       <div className="Login_header">
         <Nav>
           <a href="/">
             <img src="/images/login-logo.svg" alt="" />
           </a>
           <div>
-            <Join>Join Now</Join>
-            <SignIn>Sign In</SignIn>
+            <Join onClick={() => props.signIn()}>Join Now</Join>
+            <SignIn onClick={() => props.signIn()}>Sign In</SignIn>
           </div>
         </Nav>
       </div>
@@ -176,7 +180,7 @@ const LandingPage = () => {
           <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
-          <Google>
+          <Google onClick={() => props.signIn()}>
             <img src="/images/google.svg" alt="" />
             Sign In with Google
           </Google>
@@ -186,4 +190,14 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  signIn: () => dispatch(signInAPI()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

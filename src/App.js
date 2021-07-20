@@ -2,9 +2,11 @@ import "./App.css";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import { getUserAuth } from "./actions";
+import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Router>
@@ -23,4 +25,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {};
+};
+const mapDispatchToProps = (dispatch) => ({
+  getUserAuth: () => dispatch(getUserAuth()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

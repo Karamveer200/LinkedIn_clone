@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { useState } from "react";
+import firebase from "firebase";
 
 const Leftside = () => {
   return (
@@ -206,4 +209,10 @@ const CommunityCard = styled(ArtCard)`
   }
 `;
 
-export default Leftside;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(Leftside);

@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { signOutAPI } from "../actions";
+import { useHistory } from "react-router";
 
 const Container = styled.div`
   background-color: #9e9e9e;
@@ -158,6 +161,10 @@ const SignOut = styled.div`
 
     font-weight: 900;
   }
+
+  @media (max-width: 768px) {
+    top: -30px;
+  }
 `;
 
 const User = styled(NavList)`
@@ -186,6 +193,13 @@ const Work = styled(User)`
 `;
 
 const Header = (props) => {
+  const history = useHistory();
+
+  const signOut = async () => {
+    console.log("ashiuhasduhuhuashkj");
+    await props.signOut();
+    history.push("/");
+  };
   return (
     <Container>
       <Content>
@@ -246,7 +260,7 @@ const Header = (props) => {
                 <img src="/images/down-icon.svg" alt="" />
               </a>
 
-              <SignOut>
+              <SignOut onClick={() => signOut()}>
                 <a href>Sign Out</a>
               </SignOut>
             </User>
@@ -263,4 +277,13 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutAPI()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
